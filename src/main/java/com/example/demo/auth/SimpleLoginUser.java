@@ -1,6 +1,6 @@
 package com.example.demo.auth;
 
-import com.example.demo.entity.User;
+import com.example.demo.entity.User2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 public class SimpleLoginUser extends org.springframework.security.core.userdetails.User {
   // DBより検索したuserエンティティ
   // 認証・認可以外でアプリケーションから利用されるのでフィールドに定義
-  private User user;
+  private User2 user;
 
   /**
    * データベースより検索したuserエンティティよりSpring Securityで使用するユーザー認証情報の
@@ -25,13 +25,13 @@ public class SimpleLoginUser extends org.springframework.security.core.userdetai
    *
    * @param user userエンティティ
    */
-  public SimpleLoginUser(User user) {
+  public SimpleLoginUser(User2 user) {
     super(user.getEmail(), user.getPassword(), user.getEnable(), true, true,
         true, convertGrantedAuthorities(user.getRoles()));
     this.user = user;
   }
 
-  public User getUser() {
+  public User2 getUser() {
     return user;
   }
 

@@ -1,6 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.User;
+import com.example.demo.entity.User2;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
@@ -25,12 +25,13 @@ public class AccountServiceImpl implements AccountService {
 
   @Transactional(readOnly = true)
   @Override
-  public List<User> findAll() {
+  public List<User2> findAll() {
     return userRepository.findAll();
   }
 
   @Transactional
   @Override
+ 
   public void register(String name, String email, String password, String[] roles) {
     if (userRepository.findByEmail(email).isPresent()) {
       throw new RuntimeException("invalid name or email");
@@ -38,7 +39,7 @@ public class AccountServiceImpl implements AccountService {
     String encodedPassword = passwordEncode(password);
     String joinedRoles = joinRoles(roles);
     log.debug("name:{}, email:{}, roles:{}", name, email, joinedRoles);
-    User user = new User(null, name, email, encodedPassword, joinedRoles, Boolean.TRUE);
+    User2 user = new User2(null, name, email, encodedPassword, joinedRoles, Boolean.TRUE);
     userRepository.saveAndFlush(user);
   }
 

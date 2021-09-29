@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.User;
+import com.example.demo.entity.User2;
 import com.example.demo.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -30,7 +30,7 @@ public class IndexController {
    */
   @GetMapping(value = "/")
   public String index(@ModelAttribute("signup") SignupForm signupForm, Model model) {
-    List<User> userList = accountService.findAll();
+    List<User2> userList = accountService.findAll();
     model.addAttribute("users", userList);
     return "index";
   }

@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.auth.SimpleLoginUser;
-import com.example.demo.entity.User;
+import com.example.demo.entity.User2;
 import com.example.demo.service.ContentsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -38,7 +38,7 @@ public class ContentsController {
   }
 
   @GetMapping(value = "admin")
-  public String admin(@AuthenticationPrincipal(expression = "user") User user) {
+  public String admin(@AuthenticationPrincipal(expression = "user") User2 user) {
     log.info("#admin id:{}, name:{}", user.getId(), user.getName());
     return "members/admin/index";
   }

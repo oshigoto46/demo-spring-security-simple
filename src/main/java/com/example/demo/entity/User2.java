@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = {"email", "password"})
-public class User {
+public class User2 {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -32,4 +32,6 @@ public class User {
   private String roles;
   @Column(name = "enable_flag", nullable = false)
   private Boolean enable;
+
+
 }
